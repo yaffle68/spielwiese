@@ -12,5 +12,6 @@
     <orderEntry type="library" name="user" level="application" />
     <orderEntry type="library" name="lib" level="application" />
     <orderEntry type="library" name="vaadin-gwt-polymer-elements-1.7.0.0" level="application" />
+    <orderEntry type="library" name="jsinterop-annotations-1.0.1" level="application" />
   </component>
 </module>

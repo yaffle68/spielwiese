@@ -8,6 +8,7 @@ import com.google.gwt.sample.components.StockDisplayComponent;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
+import com.vaadin.polymer.paper.widget.PaperButton;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -28,6 +29,11 @@ public class WithTemplates implements EntryPoint {
      * This is the entry point method.
      */
     public void onModuleLoad() {
+        // Use Widget API to Create a <paper-button>
+        PaperButton button = new PaperButton("Press me!");
+        button.setRaised(true);
+        RootPanel.get().add(button);
+
         loginService.login(GWT.getHostPageBaseURL(), new AsyncCallback<LoginInfo>() {
             @Override
             public void onFailure(Throwable caught) {
