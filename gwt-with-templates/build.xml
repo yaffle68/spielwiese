@@ -4,9 +4,9 @@
   <property name="gwt.args" value="" />
 
   <!-- Configure path to GWT SDK -->
-  <property name="gwt.sdk" location="C:/Users/simon.harding/.p2/pool/plugins/com.google.gwt.eclipse.sdkbundle_2.7.0/gwt-2.7.0" />
+  <property name="gwt.sdk" location="C:/Dev/GWT-SDK/gwt-2.8.0" />
   <!-- Configure path to App Engine SDK -->
-  <property name="appengine.sdk" location="C:/Users/simon.harding/.p2/pool/plugins/com.google.appengine.eclipse.sdkbundle_1.9.34/appengine-java-sdk-1.9.34" />
+  <property name="appengine.sdk" location="C:/Dev/APPENGINE-SDK/appengine-java-sdk-1.9.48" />
 
   <!-- Extra libraries (jsinterop, vaadin polymer...-->
   <property name="additional.libs" location="C:/Dev/libs"/>
@@ -99,7 +99,7 @@
       <!--<arg value="war"/>-->
       <!-- Additional arguments like -style PRETTY, -logLevel DEBUG or -nosuperDevMode -->
       <arg line="${gwt.args}"/>
-      <arg line="-XjsInteropMode JS"/>
+      <arg line="-generateJsInteropExports"/>
       <!--<arg value="com.google.gwt.sample.WithTemplates"/>-->
       <!--<arg value="com.google.gwt.sample.WithTemplates"/>-->
 
