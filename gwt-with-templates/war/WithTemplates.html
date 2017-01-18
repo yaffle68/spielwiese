@@ -23,6 +23,11 @@
     <!-- If you add any GWT meta tags, they must   -->
     <!-- be added before this line.                -->
     <!--                                           -->
+
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <script src="withtemplates/webcomponentsjs/webcomponents.js"></script>
+
     <script type="text/javascript" language="javascript" src="withtemplates/withtemplates.nocache.js"></script>
   </head>
 
@@ -41,19 +46,9 @@
       </div>
     </noscript>
 
-    <h1>Web Application Starter Project</h1>
+    <h1>Stock Table Via GWT Templates...</h1>
 
-    <table align="center">
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Please enter your name:</td>        
-      </tr>
-      <tr>
-        <td id="nameFieldContainer"></td>
-        <td id="sendButtonContainer"></td>
-      </tr>
-      <tr>
-        <td colspan="2" style="color:red;" id="errorLabelContainer"></td>
-      </tr>
-    </table>
+    <span id="stockTable"></span>
+
   </body>
 </html>

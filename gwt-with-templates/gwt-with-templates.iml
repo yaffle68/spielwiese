@@ -7,5 +7,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="gwt-2.7" level="application" />
+    <orderEntry type="library" name="orm" level="application" />
+    <orderEntry type="library" name="user" level="application" />
+    <orderEntry type="library" name="lib" level="application" />
+    <orderEntry type="library" name="vaadin-gwt-polymer-elements-1.7.0.0" level="application" />
   </component>
 </module>

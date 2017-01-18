@@ -1,0 +1,72 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <ui:style type='com.google.gwt.sample.components.StockDisplayComponent.Style'>
+        body {
+        padding: 10px;
+        }
+
+        .watchListHeader {
+        background-color: #2062B8;
+        color: white;
+        font-style: italic;
+        }
+
+        .watchList {
+        border: 1px solid silver;
+        padding: 2px;
+        margin-bottom: 6px;
+        }
+
+        .watchListNumericColumn {
+        text-align: right;
+        width: 8em;
+        }
+
+        .watchListRemoveColumn {
+        text-align: center;
+        }
+
+        .addPanel {
+        margin: 10px 0px 15px 10px;
+        color: purple;
+        }
+
+        .gwt-Button-remove {
+        width: 50px;
+        }
+
+        .noChange {
+        color: black;
+        }
+
+        .positiveChange {
+        color: green;
+        }
+
+        .negativeChange {
+        color: red;
+        }
+
+        .errorMessage {
+        color: red;
+        }
+    </ui:style>
+
+
+    <g:HTMLPanel>
+
+        <g:VerticalPanel>
+            <g:Label ui:field='userMessage'></g:Label>
+            <g:Anchor ui:field='logoutLink' text='Logout text'></g:Anchor>
+            <g:Label ui:field='errorMsgLabel' text='Error Message' styleName='{style.errorMessage}'></g:Label>
+            <g:FlexTable ui:field='stocksTable'></g:FlexTable>
+            <g:Label ui:field='lastUpdatedLabel'></g:Label>
+            <g:HorizontalPanel addStyleNames='{style.addPanel}'>
+                <g:TextBox ui:field='newSymbolTextBox'></g:TextBox>
+                <g:Button ui:field='addButton' text='Add'></g:Button>
+            </g:HorizontalPanel>
+        </g:VerticalPanel>
+    </g:HTMLPanel>
+
+</ui:UiBinder>

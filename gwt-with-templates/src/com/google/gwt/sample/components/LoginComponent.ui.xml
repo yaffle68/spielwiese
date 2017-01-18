@@ -1,0 +1,11 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:HTMLPanel>
+         <g:VerticalPanel  ui:field='loginPanel' >
+            <g:Label ui:field='loginLabel'></g:Label>
+            <g:Anchor ui:field='loginLink'></g:Anchor>
+        </g:VerticalPanel>
+   </g:HTMLPanel>
+
+</ui:UiBinder>
