@@ -11,6 +11,7 @@ war/*/*.gwt.rpc
 
 # boilerplate generated classes #
 .apt_generated/
+war/withtemplates/
 *.cache.js
 *.nocache.js
 *.devmode.js
