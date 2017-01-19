@@ -21,7 +21,8 @@
   <inherits name="com.vaadin.polymer.Elements"/>
 
   <!-- Specify the app entry point class.                         -->
-  <entry-point class='com.google.gwt.sample.client.WithTemplates'/>
+  <entry-point class='com.google.gwt.sample.client.WithTemplatesPolymer'/>
+  <!--<entry-point class='com.google.gwt.sample.client.WithTemplates'/>-->
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client'/>
