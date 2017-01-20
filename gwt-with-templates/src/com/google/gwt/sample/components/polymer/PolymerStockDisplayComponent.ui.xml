@@ -8,6 +8,14 @@
         padding: 10px;
         }
 
+        .content {
+        padding: 15px;
+        }
+
+        .dialog {
+        min-width: 40%;
+        }
+
         .watchListHeader {
         background-color: #2062B8;
         color: white;
@@ -28,6 +36,13 @@
         .watchListRemoveColumn {
         text-align: center;
         }
+        .add {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        --paper-fab-background: var(--paper-red-500);
+        }
+
 
         .addPanel {
         margin: 10px 0px 15px 10px;
@@ -55,20 +70,67 @@
         }
     </ui:style>
 
-
     <g:HTMLPanel>
+        <p:PaperDrawerPanel ui:field="drawerPanel">
+            <div drawer="">
+                <p:PaperHeaderPanel mode="seamed">
+                    <p:PaperToolbar/>
+                    <p:PaperIconItem ui:field="menuClearAll">
+                        <i:IronIcon icon="delete" attributes="item-icon"/>
+                        <div>Clear All</div>
+                        <p:PaperRipple/>
+                    </p:PaperIconItem>
+                </p:PaperHeaderPanel>
+            </div>
+            <div main="">
+                <p:PaperHeaderPanel mode="seamed">
+                    <p:PaperToolbar>
+                        <p:PaperIconButton ui:field="menu" icon="more-vert"
+                                           attributes="paper-drawer-toggle"/>
+                        <span>Stock Viewer</span>
+                    </p:PaperToolbar>
+                    <g:HTMLPanel ui:field="content"
+                                 addStyleNames="vertical center-justified layout">
+                        <g:VerticalPanel>
+                            <g:Label ui:field='userMessage'></g:Label>
+                            <g:Anchor ui:field='logoutLink' text='Logout text'></g:Anchor>
+                            <g:Label ui:field='errorMsgLabel' text='Error Message'
+                                     styleName='{style.errorMessage}'></g:Label>
+                            <g:FlexTable ui:field='stocksTable'></g:FlexTable>
+                            <g:Label ui:field='lastUpdatedLabel'></g:Label>
 
-        <g:VerticalPanel>
-            <g:Label ui:field='userMessage'></g:Label>
-            <g:Anchor ui:field='logoutLink' text='Logout text'></g:Anchor>
-            <g:Label ui:field='errorMsgLabel' text='Error Message' styleName='{style.errorMessage}'></g:Label>
-            <g:FlexTable ui:field='stocksTable'></g:FlexTable>
-            <g:Label ui:field='lastUpdatedLabel'></g:Label>
-            <g:HorizontalPanel addStyleNames='{style.addPanel}'>
-                <g:TextBox ui:field='newSymbolTextBox'></g:TextBox>
-                <p:PaperButton ui:field='addButton' raised='true' toggles='false'>Add</p:PaperButton>
-             </g:HorizontalPanel>
-        </g:VerticalPanel>
+
+
+
+                        </g:VerticalPanel>
+                        <p:PaperFab ui:field="openAddDialogButton" icon="add"
+                                    addStyleNames="add"/>
+
+                    </g:HTMLPanel>
+
+                </p:PaperHeaderPanel>
+            </div>
+        </p:PaperDrawerPanel>
+
+        <p:PaperDialog ui:field="addItemDialog"
+                       entryAnimation="fade-in-animation"
+                       addStyleNames="{style.dialog}" modal="true">
+            <h2>Add Item</h2>
+            <p:PaperInput ui:field="newSymbolTextBox" label="Input" required="true"
+                          autoValidate="true" errorMessage="required input!"/>
+
+
+            <div class="buttons">
+
+
+                <p:PaperButton attributes="dialog-dismiss">Cancel</p:PaperButton>
+                <p:PaperButton ui:field="addButton"
+                               attributes="dialog-confirm">Add</p:PaperButton>
+
+
+            </div>
+        </p:PaperDialog>
+
     </g:HTMLPanel>
 
 </ui:UiBinder>

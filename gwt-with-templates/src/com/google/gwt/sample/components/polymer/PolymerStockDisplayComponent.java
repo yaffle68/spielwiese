@@ -18,6 +18,14 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
+import com.vaadin.polymer.Polymer;
+import com.vaadin.polymer.elemental.Function;
+import com.vaadin.polymer.iron.IronIconsetElement;
+import com.vaadin.polymer.iron.widget.IronIcons;
+import com.vaadin.polymer.iron.widget.IronIconset;
+import com.vaadin.polymer.paper.widget.PaperButton;
+import com.vaadin.polymer.paper.widget.PaperIconButton;
+import com.vaadin.polymer.paper.widget.PaperInput;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -46,6 +54,9 @@ public class PolymerStockDisplayComponent extends Composite {
         String positiveChange();
         String negativeChange();
         String errorMessage();
+        String add();
+        String content();
+        String dialog();
     }
 
     @UiField
@@ -67,7 +78,7 @@ public class PolymerStockDisplayComponent extends Composite {
     FlexTable stocksTable;
 
     @UiField
-    TextBox newSymbolTextBox;
+    PaperInput newSymbolTextBox;
 
     private StockServiceAsync stockService = GWT.create(StockService.class);
     private StockPriceServiceAsync stockPriceService;
@@ -79,6 +90,7 @@ public class PolymerStockDisplayComponent extends Composite {
 
 
     public PolymerStockDisplayComponent(final LoginInfo login) {
+
         loginInfo = login;
         initWidget(uiBinder.createAndBindUi(this));
         userMessage.setText(greetingFor(login.getNickname()));
@@ -130,22 +142,22 @@ public class PolymerStockDisplayComponent extends Composite {
         doAdd();
     }
 
-    @UiHandler("newSymbolTextBox")
-    void handleKeyUp(KeyUpEvent e) {
-        if (e.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
-            doAdd();
-        }
-    }
+//    @UiHandler("newSymbolTextBox")
+//    void handleKeyUp(KeyUpEvent e) {
+//        if (e.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
+//            doAdd();
+//        }
+//    }
 
     private void doAdd() {
-        final String symbol = newSymbolTextBox.getText().toUpperCase().trim();
-        newSymbolTextBox.setFocus(true);
+        final String symbol = newSymbolTextBox.getValue().toUpperCase().trim();
+//        newSymbolTextBox.setFocus(true);
 
         // Stock code must be between 1 and 10 chars that are numbers,
         // letters, or dots.
         if (!symbol.matches("^[0-9A-Z\\.]{1,10}$")) {
             Window.alert("'" + symbol + "' is not a valid symbol.");
-            newSymbolTextBox.selectAll();
+//            newSymbolTextBox.selectAll();
             return;
         }
 
@@ -184,7 +196,9 @@ public class PolymerStockDisplayComponent extends Composite {
         stocksTable.getCellFormatter().addStyleName(row, 3, style.watchListNumericColumn());
 
         // Add a button to remove this stock from the table.
-        Button removeStockButton = new Button("x");
+        PaperIconButton removeStockButton = new PaperIconButton();
+
+        removeStockButton.setIcon("clear");
         removeStockButton.addStyleDependentName(style.gwtButtonRemove());
         removeStockButton.addClickHandler(new ClickHandler() {
             public void onClick(ClickEvent event) {
