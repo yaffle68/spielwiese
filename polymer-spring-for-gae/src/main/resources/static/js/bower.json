@@ -22,6 +22,7 @@
     "iron-icons": "PolymerElements/iron-icons#^1.2.0",
     "paper-header-panel": "PolymerElements/paper-header-panel#^1.1.7",
     "paper-toolbar": "PolymerElements/paper-toolbar#^1.1.7",
-    "paper-drawer-panel": "PolymerElements/paper-drawer-panel#^1.0.11"
+    "paper-drawer-panel": "PolymerElements/paper-drawer-panel#^1.0.11",
+    "iron-list": "PolymerElements/iron-list#^1.4.0"
   }
 }
