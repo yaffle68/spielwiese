@@ -35,7 +35,10 @@
         <paper-toolbar id="drawerToolbar">
             <span class="paper-font-title">Drawer toolbar title</span>
         </paper-toolbar>
-        <div>Content of the drawer...
+        <div>
+            <!--<paper-icon-button icon="myicons:add-box" onclick="document.querySelector('greeting-display').loadStockPrices()">Add New Stock Item</paper-icon-button>-->
+            <paper-icon-button icon="myicons:add-box" onclick="greeting.loadStockPrices()">Add New Stock Item</paper-icon-button>
+            loadStockPrices
          </div>
     </paper-header-panel>
 
@@ -46,7 +49,7 @@
             <span class="title">My First App with Polymer</span>
         </paper-toolbar>
         <div>
-            <greeting-display></greeting-display>
+            <greeting-display id="greeting"></greeting-display>
         </div>
     </paper-header-panel>
 </paper-drawer-panel>

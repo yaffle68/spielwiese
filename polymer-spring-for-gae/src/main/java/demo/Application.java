@@ -60,6 +60,21 @@ public class Application {
         return result;
     }
 
+    @RequestMapping(path = "/stockprices", method = RequestMethod.POST)
+    public StockPrice addStockPrice() {
+        final double MAX_PRICE = 100.0; // $100.00
+        final double MAX_PRICE_CHANGE = 0.02; // +/- 2%
+
+        Random rand = new Random(new Date().getTime());
+        int numPrices = rand.nextInt(15);
+        List<StockPrice> result = new ArrayList<StockPrice>();
+
+        double price = rand.nextDouble() * MAX_PRICE;
+        double change = price * MAX_PRICE_CHANGE * (rand.nextDouble() * 2.0 - 1.0);
+        return new StockPrice("Symbol 666", price, change);
+     }
+
+
     /**
      * Escape an html string. Escaping data received from the client helps to
      * prevent cross-site script vulnerabilities.
