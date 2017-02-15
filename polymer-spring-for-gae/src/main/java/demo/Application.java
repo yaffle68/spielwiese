@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -61,9 +62,11 @@ public class Application {
     }
 
     @RequestMapping(path = "/stockprices", method = RequestMethod.POST)
-    public StockPrice addStockPrice() {
+    public StockPrice addStockPrice(@RequestBody TimeTrack body) {
         final double MAX_PRICE = 100.0; // $100.00
         final double MAX_PRICE_CHANGE = 0.02; // +/- 2%
+
+        System.out.println("From: " + body.getFrom() + ", To: " + body.getTo());
 
         Random rand = new Random(new Date().getTime());
         int numPrices = rand.nextInt(15);

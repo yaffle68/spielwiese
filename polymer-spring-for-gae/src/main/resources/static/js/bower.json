@@ -25,6 +25,7 @@
     "paper-drawer-panel": "PolymerElements/paper-drawer-panel#^1.0.11",
     "iron-list": "PolymerElements/iron-list#^1.4.0",
     "paper-fab": "^1.2.1",
-    "paper-dialog": "^1.1.0"
+    "paper-dialog": "^1.1.0",
+    "greenyouse-datetime-local-input": "^0.1.3"
   }
 }

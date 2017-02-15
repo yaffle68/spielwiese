@@ -1,0 +1,49 @@
+{
+  "name": "greenyouse-datetime-local-input",
+  "version": "0.1.3",
+  "description": "A polymer datetime-local component",
+  "license": "MIT",
+  "main": "datetime-local-input.html",
+  "authors": [
+    "Ed Babcock <ed@edbabcock.com>"
+  ],
+  "homepage": "https://github.com/greenyouse/datetime-local-input/",
+  "keywords": [
+    "polymer",
+    "web-components",
+    "datetime-local"
+  ],
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/",
+    "bower_components"
+  ],
+  "dependencies": {
+    "better-dateinput-polyfill": "^2.0.0",
+    "iron-a11y-keys": "PolymerElements/iron-a11y-keys",
+    "iron-form-element-behavior": "PolymerElements/iron-form-element-behavior#1.0.6",
+    "modernizr": "^3.3.1",
+    "moment": "^2.11.2",
+    "paper-input": "PolymerElements/paper-input",
+    "paper-styles": "PolymerElements/paper-styles",
+    "polymer": "Polymer/polymer"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page",
+    "iron-test-helpers": "PolymerElements/iron-test-helpers",
+    "test-fixture": "PolymerElements/test-fixture",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "*"
+  },
+  "_release": "0.1.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.3",
+    "commit": "699bd415e40d3e6a8ea674c0365ee0c1583170d3"
+  },
+  "_source": "https://github.com/greenyouse/datetime-local-input.git",
+  "_target": "^0.1.3",
+  "_originalSource": "greenyouse-datetime-local-input",
+  "_direct": true
+}

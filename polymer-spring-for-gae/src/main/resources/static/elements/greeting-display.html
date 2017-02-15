@@ -4,6 +4,9 @@
 
 <!-- <link rel="import" -->
 <!-- 	href="https://polygit2.appspot.com/components/polymer/polymer.html"> -->
+
+<script src="../js/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
 <link rel="import"
       href="../js/bower_components/iron-ajax/iron-ajax.html">
 <link rel="import"
@@ -31,6 +34,8 @@
 <link rel="import"
       href="../js/bower_components/paper-dialog-behavior/paper-dialog-shared-styles.html">
 
+<link rel="import" href="../js/bower_components/greenyouse-datetime-local-input/datetime-local-input.html">
+
 <dom-module id="greeting-display">
     <template>
 
@@ -52,6 +57,7 @@ paper-button.custom {
     right: -80%;
     -paper-fab-background: var(--paper-red-500);
 }
+
 
         </style>
 
@@ -89,8 +95,9 @@ paper-button.custom {
         <!--handle-as="json" on-response="handleResponseStockPrices" debounce-duration="300">-->
         <!--</iron-ajax>-->
 
-        <iron-ajax id="stockpricefetcher" url="../stockprices" last-response="{{data}}" auto></iron-ajax>
-        <iron-ajax id="stockpriceadder" url="../stockprices" method="POST" on-response="processPostResponse" auto></iron-ajax>
+        <iron-ajax id="stockpricefetcher" url="../stockprices" last-response="{{data}}"></iron-ajax>
+        <iron-ajax id="stockpriceadder" url="../stockprices" method="POST" content-type="application/json" handle-as="json" on-response="processPostResponse"
+                   auto></iron-ajax>
 
 
         <div class="bubble horizontal wrap">
@@ -139,6 +146,10 @@ paper-button.custom {
                 </iron-data-table>
             </div>
 
+            <datetime-local-input value="{{fromTimestamp}}" id="fromDateTime" label="From" on-input="validateDates" error-message="DateTime is invalid!"
+                                  required auto-validate></datetime-local-input>
+            <datetime-local-input value="{{toTimestamp}}" id="toDateTime" label="To" on-input="validateDates" error-message="DateTime is invalid!" required
+                                  auto-validate></datetime-local-input>
 
             <p>
                 <paper-icon-button icon="myicons:system-update-alt" on-click="loadStockPrices">Load Stock Prices
@@ -150,10 +161,11 @@ paper-button.custom {
 
             <paper-dialog id="addDialog" entry-animation="fade-in-animation" class="dialog" modal="">
                 <h2>Add Item</h2>
-                <paper-input label="Stock Symbol" required="true" auto-validate="" error-message="required input!"></paper-input>
+                <paper-input label="Stock Symbol" required="true" auto-validate=""
+                             error-message="required input!"></paper-input>
                 <div class="buttons">
-                    <paper-button class="custom" dialog-dismiss="close()">Cancel</paper-button>
-                    <paper-button class="custom" dialog-confirm="stockpriceadder.generateRequest()">OK</paper-button>
+                    <paper-button class="custom" dialog-dismiss>Cancel</paper-button>
+                    <paper-button class="custom" dialog-confirm on-click="addNewStock">OK</paper-button>
                 </div>
             </paper-dialog>
 
@@ -180,6 +192,15 @@ paper-button.custom {
 			greetingid : String,
 			greetingcontent : String,
 			stockPrices : Array
+		},
+
+		validateDates : function() {
+		    var from = this.$.fromDateTime;
+		    var to = this.$.fromDateTime;
+		    var invalid = (from > to);
+		    console.info("Invalid: " + invalid);
+	  	    this.$.fromDateTime.invalid = invalid;
+		    this.$.toDateTime.invalid = invalid;
 		},
 
 		ready : function() {
@@ -217,9 +238,16 @@ paper-button.custom {
 		},
 
 		addNewStock : function() {
+		    this.$.stockpriceadder.body = JSON.stringify({ "from":this.$.fromDateTime.value, "to":this.$.toDateTime.value});
+		    this.$.stockpriceadder.generateRequest();
 		    window.alert("Add an item (do nothing for now!");
+		},
+
+		createRequest : function() {
+		    return JSON.stringify({ "from":this.$.fromDateTime.value, "to":this.$.toDateTime.value});
 		}
 	});
+
 
 
     </script>
