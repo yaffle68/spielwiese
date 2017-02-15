@@ -95,9 +95,8 @@ paper-button.custom {
         <!--handle-as="json" on-response="handleResponseStockPrices" debounce-duration="300">-->
         <!--</iron-ajax>-->
 
-        <iron-ajax id="stockpricefetcher" url="../stockprices" last-response="{{data}}"></iron-ajax>
-        <iron-ajax id="stockpriceadder" url="../stockprices" method="POST" content-type="application/json" handle-as="json" on-response="processPostResponse"
-                   auto></iron-ajax>
+        <iron-ajax id="stockpricefetcher" url="../stockprices" last-response="{{data}}" auto></iron-ajax>
+        <iron-ajax id="stockpriceadder" url="../stockprices" method="POST" content-type="application/json" handle-as="json" on-response="processPostResponse"></iron-ajax>
 
 
         <div class="bubble horizontal wrap">
