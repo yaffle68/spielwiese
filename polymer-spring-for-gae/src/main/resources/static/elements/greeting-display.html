@@ -237,7 +237,7 @@ paper-button.custom {
 		},
 
 		addNewStock : function() {
-		    this.$.stockpriceadder.body = JSON.stringify({ "from":this.$.fromDateTime.value, "to":this.$.toDateTime.value});
+		    this.$.stockpriceadder.body = JSON.stringify({ "from":(typeof this.$.fromDateTime.value), "to":this.$.toDateTime.value});
 		    this.$.stockpriceadder.generateRequest();
 		    window.alert("Add an item (do nothing for now!");
 		},

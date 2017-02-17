@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>datetime-picker demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../datetime-picker.html">
+    <link rel="import" href="../calendar-element.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+      .result {
+        margin: 0.75em;
+        padding: 0.5em;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>native datetime-picker</h3>
+        <template is="dom-bind">
+          <!-- use native, if posible -->
+          <datetime-picker value="{{value}}" date-string="{{date}}" time-string="{{time}}" position="left" style="z-index:1;"></datetime-picker>
+          <div class="result">
+            <code>numeric value</code>: <b>[[value]]</b>
+            <br>
+            <code>date</code>: <b>[[date]]</b>
+            <br>
+            <code>time</code>: <b>[[time]]</b>
+          </div>
+        </template>
+
+      <h3>forced custom datetime-picker</h3>
+        <template is="dom-bind">
+          <!-- forced by use-not-native-->
+          <datetime-picker use-not-native value="{{value}}" date-string="{{date}}" time-string="{{time}}" position="top" style="z-index:1;"></datetime-picker>
+          <div class="result">
+            <code>numeric value</code>: <b>[[value]]</b>
+            <br>
+            <code>date</code>: <b>[[date]]</b>
+            <br>
+            <code>time</code>: <b>[[time]]</b>
+          </div>
+        </template>
+
+      <h3>datetime-pickers with ranges</h3>
+      <demo-snippet>
+        <template is="dom-bind">
+          <datetime-picker date-string="{{min}}" max-date="{{max}}" use-not-native></datetime-picker>
+
+          <datetime-picker date-string="{{max}}" min-date="{{min}}" position="bottom" use-not-native></datetime-picker>
+        </template>
+      </demo-snippet>
+
+      <h3>stand-alone calendar with custom-styles</h3>
+      <demo-snippet>
+        <template is="dom-bind">
+          <calendar-element></calendar-element>
+
+          <style is="custom-style">
+            calendar-element {
+              --calendar-selected: #F4505D;
+              --calendar-background: #AFB1D1;
+              --calendar-color: #232645;
+            }
+          </style>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
