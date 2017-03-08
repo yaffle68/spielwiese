@@ -8,3 +8,5 @@ Stockwatcher using Polymer Elements deployed on Google AppEngine [here](https://
 REST API documentation / Testing: [Swagger](http://swagger.io/swagger-ui/ "Swagger UI")
 
 Comparison of Java Entities: [Javers](http://javers.org/ "Javers")
+
+JavaBean to JavaBean Mapper: [Dozer](http://dozer.sourceforge.net/ "Dozer")
