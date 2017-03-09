@@ -12,3 +12,6 @@ Comparison of Java Entities: [Javers](http://javers.org/ "Javers")
 JavaBean to JavaBean Mapper: [Dozer](http://dozer.sourceforge.net/ "Dozer")
 
 Complex Queries with [QueryDSL](http://www.querydsl.com/ "QueryDSL")
+
+GUI Client for Git: [SourceTree](https://www.sourcetreeapp.com/ "SourceTree")
+
