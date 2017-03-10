@@ -15,3 +15,6 @@ Complex Queries with [QueryDSL](http://www.querydsl.com/ "QueryDSL")
 
 GUI Client for Git: [SourceTree](https://www.sourcetreeapp.com/ "SourceTree")
 
+Postgres cheat sheet [here](https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546 "https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546")
+
+
